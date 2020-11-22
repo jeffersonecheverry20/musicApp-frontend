@@ -57,7 +57,7 @@
             <mat-card-actions>
                 <div>
                     <button mat-raised-button class="button_login"
-                        [disabled]="form.get('email').invalid || form.get('password').invalid"
+                        [disabled]="form.get('email').invalid || form.get('password').invalid || form.get('tipoUsuario').invalid"
                         (click)="login($event)">Login
                     </button>
                 </div>

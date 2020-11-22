@@ -4,10 +4,12 @@
 
 export const environment = {
   production: false,
-  loign: 'https://app-music-university.herokuapp.com/api/login',
+  loginUser: 'https://app-music-university.herokuapp.com/api/login',
+  loginArtist: 'https://app-music-university.herokuapp.com/api/login-artist',
   registerUser: 'https://app-music-university.herokuapp.com/api/register',
   registerArtist: 'https://app-music-university.herokuapp.com/api/register-artist',
-  registerUserLocal: 'http://localhost:3000/api/register'
+  registerUserLocal: 'http://localhost:3000/api/register',
+  loginArtistLocal: 'http://localhost:3000/api/login-artist'
 };
 
 /*

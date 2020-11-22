@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../core/services/login/login.service';
+import { UserGeneric } from '../../modelos/userGeneric';
+import { Response } from '../../modelos/response';
 
 @Component({
     selector: 'app-login',
@@ -41,6 +43,44 @@ export class LoginComponent implements OnInit{
 
   // tslint:disable-next-line: typedef
   login(event: Event): void{
+    event.preventDefault();
+    const user = this.buildObjectUserGeneric();
+    if (this.form.get('tipoUsuario').value === 'Usuario'){
+      this.loginService.login(JSON.stringify(user)).subscribe((response: Response) => {
+        if (response.code === 0){
+          console.log(response);
+          console.log(response.body.token);
+          sessionStorage.setItem('token', response.body.token);
+        } else {
+          console.log(response.message);
+          console.log(response.body);
+        }
+      }, err => {
+        console.log(err);
+      });
+    } else {
+      this.loginService.loginArtist(JSON.stringify(user)).subscribe((response: Response) => {
+        if (response.code === 0){
+          console.log(response);
+          console.log(response.body.token);
+          sessionStorage.setItem('token', response.body.token);
+        } else {
+          console.log(response.message);
+          console.log(response.body);
+        }
+      }, err => {
+        console.log(err);
+      });
+    }
+
+  }
+
+  buildObjectUserGeneric(): any{
+    const user = new UserGeneric();
+    user.email = this.form.get('email').value;
+    user.password = this.form.get('password').value;
+
+    return user;
   }
 
   register(event: Event): void {
