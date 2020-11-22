@@ -51,8 +51,7 @@
                             <div class="col-xs">
                                 <mat-form-field class="input_text" appearance="outline">
                                     <mat-label>Password</mat-label>
-                                    <input formControlName="password" matInput [type]="validar ? 'password' : 
-                                    'text'" placeholder="Password"/>
+                                    <input formControlName="password" matInput type="text" placeholder="Password"/>
                                 </mat-form-field>
                                 <mat-error *ngIf="formUser.get('password').invalid && (formUser.get('password').touched || 
                                     formUser.get('password').dirty)">El campo es requerido</mat-error>
@@ -95,7 +94,6 @@
 
                     </mat-card-content>
                     <mat-card-footer></mat-card-footer>
-                    <tr>
                     <mat-card-actions>
                         <div>
                             <button mat-raised-button class="button_register"
@@ -110,9 +108,111 @@
             <form [formGroup]="formArtist">
                 <mat-card>
                     <mat-card-header></mat-card-header>
-                    <mat-card-content></mat-card-content>
+                    <mat-card-content>
+                        <div class="row">
+                            <mat-form-field class="input_text" appearance="outline">
+                                <mat-label>Nombre Usuario</mat-label>
+                                <input formControlName="name" matInput type="text" placeholder="Nombre Usuario" />
+                            </mat-form-field>
+                            <mat-error *ngIf="formArtist.get('name').invalid && (formArtist.get('name').touched || 
+                            formArtist.get('name').dirty)">El campo es requerido</mat-error>
+                        </div>
+
+                        <div class="row">
+                            <mat-form-field class="input_text" appearance="outline">
+                                <mat-label>Apellido Usuario</mat-label>
+                                <input formControlName="surname" matInput type="text" placeholder="Apellido Usuario" />
+                            </mat-form-field>
+                            <mat-error *ngIf="formArtist.get('surname').invalid && (formArtist.get('surname').touched || 
+                            formArtist.get('surname').dirty)">El campo es requerido</mat-error>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs">
+                                <mat-form-field class="input_text" appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input formControlName="email" matInput type="text" placeholder="Email" />
+                                </mat-form-field>
+                                <mat-error *ngIf="formArtist.get('email').invalid && (formArtist.get('email').touched || 
+                                formArtist.get('email').dirty)">El campo es requerido y debe ser xxxx@xxx.uniajc.edu.co</mat-error>
+                            </div>
+                        </div>
+        
+                        <div class="row">
+                            <div class="col-xs">
+                                <mat-form-field class="input_text" appearance="outline">
+                                    <mat-label>Password</mat-label>
+                                    <input formControlName="password" matInput type="text" placeholder="Password"/>
+                                </mat-form-field>
+                                <mat-error *ngIf="formArtist.get('password').invalid && (formArtist.get('password').touched || 
+                                    formArtist.get('password').dirty)">El campo es requerido</mat-error>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs">
+                                <mat-form-field class="input_text" appearance="outline">
+                                    <mat-label>Celular</mat-label>
+                                    <input formControlName="cellphone" matInput type="text" placeholder="Cellphone"/>
+                                </mat-form-field>
+                                <mat-error *ngIf="formArtist.get('cellphone').invalid && (formArtist.get('cellphone').touched || 
+                                    formArtist.get('cellphone').dirty)">El campo es requerido</mat-error>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs">
+                                <mat-form-field class="input_text" appearance="outline">
+                                    <mat-label>Descripción</mat-label>
+                                    <textarea formControlName="description" matInput type="text" placeholder="Descripción"></textarea>
+                                </mat-form-field>
+                                <mat-error *ngIf="formArtist.get('description').invalid && (formArtist.get('description').touched || 
+                                    formArtist.get('description').dirty)">El campo es requerido</mat-error>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs">
+                                <mat-form-field class="input_text" appearance="outline">
+                                    <mat-label>Instagram (Opcional)</mat-label>
+                                    <input formControlName="instagram" matInput type="text" placeholder="Instagram"/>
+                                </mat-form-field>
+                                <mat-error *ngIf="formArtist.get('instagram').invalid && (formArtist.get('instagram').touched || 
+                                    formArtist.get('instagram').dirty)">El campo es requerido</mat-error>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs">
+                                <mat-form-field class="input_text" appearance="outline">
+                                    <mat-label>Twitter (Opcional)</mat-label>
+                                    <input formControlName="twitter" matInput type="text" placeholder="Twitter"/>
+                                </mat-form-field>
+                                <mat-error *ngIf="formArtist.get('twitter').invalid && (formArtist.get('twitter').touched || 
+                                    formArtist.get('twitter').dirty)">El campo es requerido</mat-error>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs">
+                                <mat-form-field class="input_text" appearance="outline">
+                                    <mat-label>Facebook (Opcional)</mat-label>
+                                    <input formControlName="facebook" matInput type="text" placeholder="Facebook"/>
+                                </mat-form-field>
+                                <mat-error *ngIf="formArtist.get('facebook').invalid && (formArtist.get('facebook').touched || 
+                                    formArtist.get('facebook').dirty)">El campo es requerido</mat-error>
+                            </div>
+                        </div>
+
+                    </mat-card-content>
                     <mat-card-footer></mat-card-footer>
-                    <mat-card-actions></mat-card-actions>
+                    <mat-card-actions>
+                        <div>
+                            <button mat-raised-button class="button_register"
+                                (click)="register()">Registrarme
+                            </button>
+                        </div>
+                    </mat-card-actions>
                 </mat-card>
             </form>
         </div>

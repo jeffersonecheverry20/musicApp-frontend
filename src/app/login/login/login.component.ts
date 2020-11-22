@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '../../core/services/login/login.service';
 
 @Component({
     selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit{
   mensajeErrorHttp = '';
   tiposUsuario = ['Usuario', 'Cantante'];
 
-  constructor(private formBuilder: FormBuilder, private routing: Router) {
+  constructor(private formBuilder: FormBuilder, private routing: Router, private loginService: LoginService) {
     this.buildForm();
   }
 
