@@ -1,0 +1,72 @@
+<div class="contenedor">
+    <form [formGroup]="form">
+        <mat-card class="card">
+            <mat-card-header>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field class="input_text" appearance="outline">
+                            <mat-label>Usuario</mat-label>
+                            <input formControlName="email" matInput type="text" placeholder="Usuario" />
+                        </mat-form-field>
+                        <mat-error *ngIf="form.get('email').invalid && (form.get('email').touched || 
+                        form.get('email').dirty)">El campo es requerido y debe ser xxxx@xxx.uniajc.edu.co</mat-error>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field class="input_text" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input formControlName="password" matInput [type]="validar ? 'password' : 
+                            'text'" placeholder="Password"/>
+                            <button mat-icon-button matSuffix (click)="visibility($event)">
+                                <mat-icon>{{validar ? 'visibility_off': 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                        <mat-error *ngIf="form.get('password').invalid && (form.get('password').touched || 
+                        form.get('password').dirty)">El campo es requerido</mat-error>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs">
+                        <mat-form-field class="input_text" appearance="outline">
+                            <mat-label>Tipo Usuario</mat-label>
+                            <mat-select formControlName="tipoUsuario">
+                                <mat-option *ngFor="let tipo of tiposUsuario" [value]="tipo">{{tipo}}</mat-option>
+                            </mat-select>           
+                        </mat-form-field>
+                        <mat-error *ngIf="form.get('tipoUsuario').invalid && (form.get('tipoUsuario').touched || 
+                        form.get('tipoUsuario').dirty)">El campo es requerido</mat-error>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs">
+
+                    </div>
+                </div>
+            </mat-card-content>
+                
+            <mat-card-footer *ngIf="errorHttp" class="color_text">
+                {{mensajeErrorHttp}}
+            </mat-card-footer>
+
+            <mat-card-actions>
+                <div>
+                    <button mat-raised-button class="button_login"
+                        [disabled]="form.get('email').invalid || form.get('password').invalid"
+                        (click)="login($event)">Login
+                    </button>
+                </div>
+                <div>
+                    <button mat-raised-button class="button_register"
+                        (click)="register($event)">Registrarme
+                    </button>
+                </div>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>

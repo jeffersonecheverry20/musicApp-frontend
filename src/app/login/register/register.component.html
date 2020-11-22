@@ -1,0 +1,120 @@
+<div class="total">
+    <div class="lateral box">
+        <img src="../../../assets/register.jpg"> 
+    </div>
+    <div class="contenedor">
+        <div>
+            <form [formGroup]="formSelection">
+                <label class="negrilla">Tipo de Usuario: </label>
+                <mat-radio-group [formControl]="controlOptions">
+                    <mat-radio-button value="user">Usuario</mat-radio-button>
+                    <mat-radio-button value="artist">Artista</mat-radio-button>
+                </mat-radio-group>
+            </form>
+        </div>
+        <hr>
+        <div *ngIf="controlOptions.value === 'user'">
+            <form [formGroup]="formUser">
+                <mat-card>
+                    <mat-card-header></mat-card-header>
+                    <mat-card-content>
+                        <div class="row">
+                            <mat-form-field class="input_text" appearance="outline">
+                                <mat-label>Nombre Usuario</mat-label>
+                                <input formControlName="name" matInput type="text" placeholder="Nombre Usuario" />
+                            </mat-form-field>
+                            <mat-error *ngIf="formUser.get('name').invalid && (formUser.get('name').touched || 
+                                formUser.get('name').dirty)">El campo es requerido</mat-error>
+                        </div>
+
+                        <div class="row">
+                            <mat-form-field class="input_text" appearance="outline">
+                                <mat-label>Apellido Usuario</mat-label>
+                                <input formControlName="surname" matInput type="text" placeholder="Apellido Usuario" />
+                            </mat-form-field>
+                            <mat-error *ngIf="formUser.get('surname').invalid && (formUser.get('surname').touched || 
+                                formUser.get('surname').dirty)">El campo es requerido</mat-error>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs">
+                                <mat-form-field class="input_text" appearance="outline">
+                                    <mat-label>Email</mat-label>
+                                    <input formControlName="email" matInput type="text" placeholder="Email" />
+                                </mat-form-field>
+                                <mat-error *ngIf="formUser.get('email').invalid && (formUser.get('email').touched || 
+                                    formUser.get('email').dirty)">El campo es requerido y debe ser xxxx@xxx.uniajc.edu.co</mat-error>
+                            </div>
+                        </div>
+        
+                        <div class="row">
+                            <div class="col-xs">
+                                <mat-form-field class="input_text" appearance="outline">
+                                    <mat-label>Password</mat-label>
+                                    <input formControlName="password" matInput [type]="validar ? 'password' : 
+                                    'text'" placeholder="Password"/>
+                                </mat-form-field>
+                                <mat-error *ngIf="formUser.get('password').invalid && (formUser.get('password').touched || 
+                                    formUser.get('password').dirty)">El campo es requerido</mat-error>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="negrilla">Generos Preferencia: </label>
+                            <section>
+                                <div class="genre_left">
+                                    <div class="row">
+                                        <mat-checkbox formControlName="salsa">Salsa</mat-checkbox>
+                                    </div>
+                                    <div class="row">
+                                        <mat-checkbox formControlName="vallenato">Vallenato</mat-checkbox>
+                                    </div>
+                                    <div class="row">
+                                        <mat-checkbox formControlName="bachata">Bachata</mat-checkbox>
+                                    </div>
+                                    <div class="row">
+                                        <mat-checkbox formControlName="clasica">Clasica</mat-checkbox>
+                                    </div>
+                                </div>
+                                <div class="genre_right">
+                                    <div class="row">
+                                        <mat-checkbox formControlName="regueton">Regueton</mat-checkbox>
+                                    </div>
+                                    <div class="row">
+                                        <mat-checkbox formControlName="pop">Pop</mat-checkbox>
+                                    </div>
+                                    <div class="row">
+                                        <mat-checkbox formControlName="balada">Balada</mat-checkbox>
+                                    </div>
+                                    <div class="row">
+                                        <mat-checkbox formControlName="rock">Rock</mat-checkbox>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                    </mat-card-content>
+                    <mat-card-footer></mat-card-footer>
+                    <tr>
+                    <mat-card-actions>
+                        <div>
+                            <button mat-raised-button class="button_register"
+                                (click)="register()">Registrarme
+                            </button>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </form>
+        </div>
+        <div *ngIf="controlOptions.value === 'artist'">
+            <form [formGroup]="formArtist">
+                <mat-card>
+                    <mat-card-header></mat-card-header>
+                    <mat-card-content></mat-card-content>
+                    <mat-card-footer></mat-card-footer>
+                    <mat-card-actions></mat-card-actions>
+                </mat-card>
+            </form>
+        </div>
+    </div>
+</div>

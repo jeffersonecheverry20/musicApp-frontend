@@ -1,0 +1,61 @@
+.total{
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor{
+    margin-top: 3%;
+    width: 60%;
+    float: right;
+    height: 100hv;
+}
+
+.lateral {
+    width: 39%;
+    float: left;
+    height: 100%;
+    background-image: cover;
+}
+
+mat-radio-button {
+    margin: 0 12px;
+}
+
+.negrilla {
+    font-weight: bold;
+}
+
+.input_text {
+    display: block;
+}
+
+.genre_right{
+    width: 50%;
+    float: right;
+}
+
+.genre_left{
+    width: 50%;
+    float: left;
+}
+
+.button_register {
+    top: 3px;
+    width: 100%;
+    background-color: blue;
+    color: white;
+    display: block;
+}
+
+.box img{
+    width: 100%;
+    height: auto;
+}
+
+@supports(object-fit: cover){
+    .box img{
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}

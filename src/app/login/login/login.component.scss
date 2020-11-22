@@ -1,0 +1,36 @@
+.contenedor{
+    //margin-top: 20%;
+    height: 100%;
+    min-height: 100%;
+    width: 300hv;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   background: yellow;
+}
+
+.card{
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.input_text {
+    display: block;
+}
+
+.button_login {
+    width: 100%;
+    background-color: green;
+    color: white;
+}
+
+.button_register {
+    top: 3px;
+    width: 100%;
+    background-color: blue;
+    color: white;
+}
+
+.color_text {
+    color: red;
+}
