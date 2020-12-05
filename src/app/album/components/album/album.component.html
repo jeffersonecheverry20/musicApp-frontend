@@ -1,0 +1,63 @@
+<div class="row total">
+    <div class="col-lg-2 fondo-nav">
+        <app-header></app-header>
+    </div>
+    <div class="col-lg-10 fondo">
+        <div *ngIf="role === 'ROLE_USER'">
+            <!--Muestre todo los albumes de todos los cantantes-->
+            <div class="row center">
+                <mat-card *ngFor="let album of albumes" class="col-lg-3 card-space">
+                    <mat-card-header class="centrar">
+                        <mat-card-title>
+                            <img src="{{url + album.image}}" class="user-image">
+                        </mat-card-title>
+                        <mat-card-subtitle class="bold-text">{{ album.title }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p><span class="bold-text">Año: </span> {{album.year}}</p>
+                        <p><span class="bold-text">Descripción: </span>{{album.description}}</p>
+                        <p><span class="bold-text">Genero: </span>{{album.genre}}</p>
+                        <p><span class="bold-text">Artista: </span>{{album.artist.name +' '+album.artist.surname}}</p>
+                    </mat-card-content>
+                    <mat-card-actions class="buttons">
+                        <button mat-raised-button color="primary">Canciones</button>
+                    </mat-card-actions>
+                </mat-card> 
+            </div>  
+        </div>
+        <div *ngIf="role === 'ROLE_ARTIST'">
+            <br>
+            <div class="row">
+                <div class="col-lg-1">
+                    <button mat-raised-button color="primary" class="user-button" (click)="createAlbum($event)">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </div>
+                <div class="col-lg-10">
+                    <h1 class="title">Añadir Albúm</h1><br>
+                </div>
+            </div>
+            <hr>
+            <div class="row center">
+                <mat-card *ngFor="let album of albumes" class="col-lg-3 card-space">
+                    <mat-card-header class="centrar">
+                        <mat-card-title>
+                            <img src="{{url + album.image}}" class="user-image">
+                        </mat-card-title>
+                        <mat-card-subtitle class="bold-text">{{ album.title }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p><span class="bold-text">Año: </span> {{album.year}}</p>
+                        <p><span class="bold-text">Descripción: </span>{{album.description}}</p>
+                        <p><span class="bold-text">Genero: </span>{{album.genre}}</p>
+                        <p><span class="bold-text">Artista: </span>{{album.artist.name +' '+album.artist.surname}}</p>
+                    </mat-card-content>
+                    <mat-card-actions class="buttons">
+                        <button mat-raised-button color="primary" (click)="createSong($event, album._id)">Crear Canción</button>
+                        <button mat-raised-button color="warn" (click)="listSongs($event, album._id)">Canciones</button>
+                    </mat-card-actions>
+                </mat-card> 
+            </div>  
+        </div>
+    </div>
+</div>

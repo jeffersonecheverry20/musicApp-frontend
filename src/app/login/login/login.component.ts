@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit{
   mensajeErrorHttp = '';
   tiposUsuario = ['Usuario', 'Cantante'];
 
-  constructor(private formBuilder: FormBuilder, private routing: Router, private loginService: LoginService) {
+  constructor(private formBuilder: FormBuilder, private routing: Router, private loginService: LoginService,
+              private router: Router) {
     this.buildForm();
   }
 
@@ -48,9 +49,15 @@ export class LoginComponent implements OnInit{
     if (this.form.get('tipoUsuario').value === 'Usuario'){
       this.loginService.login(JSON.stringify(user)).subscribe((response: Response) => {
         if (response.code === 0){
-          console.log(response);
           console.log(response.body.token);
+          console.log(response.body.user);
+          console.log('El nombre de la imagen es ', response.body.user.image);
           sessionStorage.setItem('token', response.body.token);
+          sessionStorage.setItem('idUsuario', response.body.user._id);
+          sessionStorage.setItem('nameUser', response.body.user.name + ' ' + response.body.user.surname);
+          sessionStorage.setItem('role', response.body.user.role);
+          sessionStorage.setItem('image', response.body.user.image);
+          this.router.navigate(['/artist']);
         } else {
           console.log(response.message);
           console.log(response.body);
@@ -64,6 +71,11 @@ export class LoginComponent implements OnInit{
           console.log(response);
           console.log(response.body.token);
           sessionStorage.setItem('token', response.body.token);
+          sessionStorage.setItem('idUsuario', response.body.user._id);
+          sessionStorage.setItem('nameUser', response.body.user.name + ' ' + response.body.user.surname);
+          sessionStorage.setItem('role', response.body.user.role);
+          sessionStorage.setItem('image', response.body.user.image);
+          this.router.navigate(['/album']);
         } else {
           console.log(response.message);
           console.log(response.body);

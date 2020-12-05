@@ -1,0 +1,69 @@
+<div class="row total">
+    <div class="col-lg-2 fondo-nav">  
+        <app-header></app-header>
+    </div>
+    <div class="col-lg-10 fondo">
+        <form [formGroup]="form">
+            <mat-card>
+                <mat-card-header></mat-card-header>
+                <mat-card-content>
+                    <div>
+                        <mat-form-field class="input_text" appearance="outline">
+                            <mat-label>Número</mat-label>
+                            <input formControlName="number" matInput type="text" placeholder="Nombre Usuario" />
+                        </mat-form-field>
+                        <mat-error *ngIf="form.get('number').invalid && (form.get('number').touched || 
+                        form.get('number').dirty)">El campo es requerido</mat-error>
+                    </div>
+    
+                    <div>
+                        <mat-form-field class="input_text" appearance="outline">
+                            <mat-label>Nombre</mat-label>
+                            <input formControlName="name" matInput type="text" placeholder="Apellido Usuario" />
+                        </mat-form-field>
+                        <mat-error *ngIf="form.get('name').invalid && (form.get('name').touched || 
+                        form.get('name').dirty)">El campo es requerido</mat-error>
+                    </div>
+    
+                    <div>
+                        <div class="col-xs">
+                            <mat-form-field class="input_text" appearance="outline">
+                                <mat-label>Duración</mat-label>
+                                <input formControlName="duration" matInput type="text" placeholder="Email" />
+                            </mat-form-field>
+                            <mat-error *ngIf="form.get('duration').invalid && (form.get('duration').touched || 
+                            form.get('duration').dirty)">El campo es requerido</mat-error>
+                        </div>
+                    </div>
+    
+                    <div>
+                        <div class="col-xs">
+                            <mat-form-field class="input_text" appearance="outline">
+                                <mat-label>Genero</mat-label>
+                                <input formControlName="genre" matInput type="text" placeholder="Password" />
+                            </mat-form-field>
+                            <mat-error *ngIf="form.get('genre').invalid && (form.get('genre').touched || 
+                            form.get('genre').dirty)">El campo es requerido</mat-error>
+                        </div>
+                    </div>
+    
+                </mat-card-content>
+                <mat-card-footer></mat-card-footer>
+                <mat-card-actions>
+                    <div>
+                        <label>Sube fichero audio: </label><br>
+                        <input type="file" placeholder="Subir imagen" (change)="fileChaneEvent($event)">
+                    </div><br>
+                    <!--<div class="row">
+                        <audio controls>
+                            <source src="{{uri}}" type="audio/mpeg">
+                        </audio>
+                    </div>-->
+                    <div>
+                        <button mat-raised-button class="button_update" (click)="saveSong($event)">Crear</button>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </form>
+    </div>
+</div>

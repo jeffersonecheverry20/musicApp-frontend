@@ -1,0 +1,29 @@
+<div class="row total">
+    <div class="col-lg-2 fondo-nav">
+        <app-header></app-header>
+    </div>
+    <div class="col-lg-10 fondo">
+        <h1 class="title">Artistas</h1>
+        <div class="row center">
+            <mat-card *ngFor="let artist of artists" class="col-lg-3 card-space">
+                <mat-card-header class="centrar">
+                    <mat-card-title *ngIf="artist.image !== null && artist.image !== undefined">
+                        <img src="{{url + artist.image}}" class="user-image">
+                    </mat-card-title>
+                    <mat-card-subtitle class="bold-text">{{ artist.name +' '+artist.surname }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p><span class="bold-text">Email: </span> {{artist.email}}</p>
+                    <p><span class="bold-text">Descripción: </span>{{artist.description}}</p>
+                    <p><span class="bold-text">Celular: </span>{{artist.cellphone}}</p>
+                </mat-card-content>
+                <mat-card-actions class="buttons">
+                    <button mat-raised-button color="primary" (click)="detailArtist($event, artist.email)">Redes Sociales</button>
+                    <button mat-raised-button color="warn" (click)="albumArtist($event, artist._id)">Álbumes</button>
+                </mat-card-actions>
+            </mat-card> 
+        </div>      
+    </div>
+</div>
+
+

@@ -1,0 +1,31 @@
+<div class="row total">
+    <div class="col-lg-2 fondo-nav">
+        <app-header></app-header>
+    </div>
+    <div class="col-lg-10 fondo">
+        <br>
+        <div id="album-head-card">
+            <div class="image" *ngIf="album !== null && album !== undefined">
+                <img src="{{url + album.image}}">
+            </div>
+            <div class="data" *ngIf="(album !== null && album !== undefined) && (artist !== null && artist !== undefined)">
+                <h1>{{album.title}}</h1>
+                <p><strong>{{artist.name + ' ' + artist.surname}}</strong></p>
+                <p>{{album.year}}</p>
+                <p>{{album.description}}</p>
+            </div>
+        </div>
+        <br>
+        <div id="gallery-songs">
+            <ul id="songs-list">
+                <li *ngFor="let song of songs" class="song-item">
+                    <div class="title">
+                        <button mat-raised-button color="primary" class="description" (click)="reproducirSong(song.number)"><mat-icon>play_arrow</mat-icon></button>
+                        {{song.number + '. ' +song.name + ' - ' + song.duration}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <app-player class="player" [song]="song" *ngIf="activar"></app-player>
+    </div>
+</div>

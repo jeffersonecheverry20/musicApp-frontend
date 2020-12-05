@@ -111,42 +111,42 @@ export class RegisterComponent implements OnInit {
     user.genre = [];
 
     if (this.formUser.get('salsa').value === true){
-      user.genre[contador] = 'salsa';
+      user.genre[contador] = 'Salsa';
       contador++;
     }
 
     if (this.formUser.get('vallenato').value === true){
-      user.genre[contador] = 'vallenato';
+      user.genre[contador] = 'Vallenato';
       contador++;
     }
 
     if (this.formUser.get('bachata').value === true){
-      user.genre[contador] = 'bachata';
+      user.genre[contador] = 'Bachata';
       contador++;
     }
 
     if (this.formUser.get('clasica').value === true){
-      user.genre[contador] = 'clasica';
+      user.genre[contador] = 'Clasica';
       contador++;
     }
 
     if (this.formUser.get('regueton').value === true){
-      user.genre[contador] = 'regueton';
+      user.genre[contador] = 'Regueton';
       contador++;
     }
 
     if (this.formUser.get('pop').value === true){
-      user.genre[contador] = 'pop';
+      user.genre[contador] = 'Pop';
       contador++;
     }
 
     if (this.formUser.get('balada').value === true){
-      user.genre[contador] = 'balada';
+      user.genre[contador] = 'Balada';
       contador++;
     }
 
     if (this.formUser.get('rock').value === true){
-      user.genre[contador] = 'rock';
+      user.genre[contador] = 'Rock';
       contador++;
     }
 

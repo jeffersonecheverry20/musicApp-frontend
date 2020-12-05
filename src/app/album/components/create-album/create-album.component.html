@@ -1,0 +1,69 @@
+<div class="row total">
+    <div class="col-lg-2 fondo-nav">
+        <app-header></app-header>
+    </div>
+    <div class="col-lg-10 fondo">
+        <div>
+            <form [formGroup]="form">
+                <mat-card>
+                    <mat-card-header></mat-card-header>
+                    <mat-card-content>
+                        <div>
+                            <mat-form-field class="input_text" appearance="outline">
+                                <mat-label>Titulo</mat-label>
+                                <input formControlName="title" matInput type="text" placeholder="Titulo" />
+                            </mat-form-field>
+                            <mat-error *ngIf="form.get('title').invalid && (form.get('title').touched || 
+                            form.get('title').dirty)">El campo es requerido</mat-error>
+                        </div>
+    
+                        <div>
+                            <mat-form-field class="input_text" appearance="outline">
+                                <mat-label>Año</mat-label>
+                                <input formControlName="year" matInput type="text" placeholder="Año" />
+                            </mat-form-field>
+                            <mat-error *ngIf="form.get('year').invalid && (form.get('year').touched || 
+                            form.get('year').dirty)">El campo es requerido</mat-error>
+                        </div>
+    
+                        <div>
+                            <div class="col-xs">
+                                <mat-form-field class="input_text" appearance="outline">
+                                    <mat-label>Genero</mat-label>
+                                    <input formControlName="genre" matInput type="text" placeholder="Email" />
+                                </mat-form-field>
+                                <mat-error *ngIf="form.get('genre').invalid && (form.get('genre').touched || 
+                                form.get('genre').dirty)">El campo es requerido y debe ser xxxx@xxx.uniajc.edu.co
+                                </mat-error>
+                            </div>
+                        </div>
+    
+                        <div>
+                            <div class="col-xs">
+                                <mat-form-field class="input_text" appearance="outline">
+                                    <mat-label>Descripcion</mat-label>
+                                    <input formControlName="description" matInput type="text" placeholder="Descripcion" />
+                                </mat-form-field>
+                                <mat-error *ngIf="form.get('description').invalid && (form.get('description').touched || 
+                                form.get('description').dirty)">El campo es requerido</mat-error>
+                            </div>
+                        </div>
+    
+                    </mat-card-content>
+                    <mat-card-footer></mat-card-footer>
+                    <mat-card-actions>
+                        <div>
+                            <p>
+                                <label>Sube tu foto: </label><br>
+                                <input type="file" placeholder="Subir imagen" (change)="fileChaneEvent($event)">
+                            </p>
+                        </div>
+                        <div>
+                            <button mat-raised-button class="button_update" (click)="createAlbum($event)">Crear Albúm</button>
+                        </div>
+                    </mat-card-actions>
+                </mat-card>
+            </form>
+        </div>
+    </div>
+</div>

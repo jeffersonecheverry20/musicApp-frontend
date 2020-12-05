@@ -1,0 +1,55 @@
+<div class="navegation">
+    <div class="row centrar">
+        <h1 class="head-title">
+            <a routerLink="/artist">
+                <mat-icon>music_video</mat-icon>
+                <span class="span-title">Music App</span> 
+            </a>
+        </h1>
+    </div>
+    <nav>
+        <div class="row centrar">
+            <a routerLink="/recomendaciones" [routerLinkActive]="['actived']">
+                <mat-icon>hearing</mat-icon><br>
+                <span>Recomendaciones</span>
+            </a>
+        </div>
+        <div class="row centrar">
+            <a routerLink="/artist" [routerLinkActive]="['actived']">
+                <mat-icon>star</mat-icon><br>
+                <span>Artista</span>
+            </a>
+        </div>
+        <div class="row centrar">
+            <a routerLink="/album" [routerLinkActive]="['actived']">
+                <mat-icon>folder</mat-icon><br>
+                <span>Albúm</span>
+            </a>
+        </div>
+    </nav>
+    <nav class="user_logged">
+        <div>
+            <img src="{{url}}" class="user-image">
+        </div>
+        <span>
+           {{name}}
+        </span>
+        <div *ngIf="role === 'ROLE_USER'">
+            <a routerLink="/user/updateUser">
+                <mat-icon>face</mat-icon><br>
+                <span>Mis datos</span>
+            </a>
+        </div>
+        <div *ngIf="role === 'ROLE_ARTIST'">
+            <a routerLink="/user/updateArtist">
+                <mat-icon>face</mat-icon><br>
+                <span>Mis datos</span>
+            </a>
+        </div>
+        <a (click)="logout()">
+            <mat-icon>keyboard_tab</mat-icon>
+            <span>Cerrar Sesión</span><br>
+        </a>
+    </nav>
+</div>
+<router-outlet></router-outlet>

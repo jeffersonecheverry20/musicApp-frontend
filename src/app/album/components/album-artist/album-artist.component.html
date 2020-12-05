@@ -1,0 +1,26 @@
+<div class="row total">
+    <div class="col-lg-2 fondo-nav">
+        <app-header></app-header>
+    </div>
+    <div class="col-lg-10 fondo">
+        <div class="row center">
+            <mat-card *ngFor="let album of albumes" class="col-lg-3 card-space">
+                <mat-card-header class="centrar">
+                    <mat-card-title>
+                        <img src="{{url + album.image}}" class="user-image">
+                    </mat-card-title>
+                    <mat-card-subtitle class="bold-text">{{ album.title }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p><span class="bold-text">Año: </span> {{album.year}}</p>
+                    <p><span class="bold-text">Descripción: </span>{{album.description}}</p>
+                    <p><span class="bold-text">Genero: </span>{{album.genre}}</p>
+                    <p><span class="bold-text">Artista: </span>{{album.artist.name +' '+album.artist.surname}}</p>
+                </mat-card-content>
+                <mat-card-actions class="buttons">
+                    <button mat-raised-button color="primary">Canciones</button>
+                </mat-card-actions>
+            </mat-card> 
+        </div>  
+    </div>
+</div>

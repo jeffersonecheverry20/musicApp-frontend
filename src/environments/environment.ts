@@ -4,12 +4,31 @@
 
 export const environment = {
   production: false,
+  // Heroku
   loginUser: 'https://app-music-university.herokuapp.com/api/login',
   loginArtist: 'https://app-music-university.herokuapp.com/api/login-artist',
   registerUser: 'https://app-music-university.herokuapp.com/api/register',
   registerArtist: 'https://app-music-university.herokuapp.com/api/register-artist',
+  updateUser: 'https://app-music-university.herokuapp.com/api/update-user/',
+  // Local
+  loginUserLocal: 'http://localhost:3000/api/login',
+  loginArtistLocal: 'http://localhost:3000/api/login-artist',
   registerUserLocal: 'http://localhost:3000/api/register',
-  loginArtistLocal: 'http://localhost:3000/api/login-artist'
+  registerArtistLocal: 'http://localhost:3000/api/register-artist',
+  getUserLocal: 'http://localhost:3000/api/user/',
+  uploadImageUserLocal: 'http://localhost:3000/api/upload-image/',
+  getImageUserLocal: 'http://localhost:3000/api/get-image/',
+  updateUserLocal: 'http://localhost:3000/api/update-user/',
+  getAllArtists: 'http://localhost:3000/api/artists',
+  getAllAlbums: 'http://localhost:3000/api/albums/',
+  saveAlbum: 'http://localhost:3000/api/createAlbum',
+  uploadImageAlbumLocal: 'http://localhost:3000/api/upload-image-album/',
+  getImageAlbumLocal: 'http://localhost:3000/api/get-image-album/',
+  saveSongLocal: 'http://localhost:3000/api/createSong',
+  uploadAudioLocal: 'http://localhost:3000/api/upload-file-song/',
+  getSongLocal: 'http://localhost:3000/api/song/',
+  getSongAlbumLocal: 'http://localhost:3000/api/songs/',
+  getAudiloLocal: 'http://localhost:3000/api/get-file-song/'
 };
 
 /*

@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-lg-2">
+        <div class="album-image">
+            <span>
+                <img id="play-image-album" src="../../../../assets/music.png">
+            </span>
+        </div>
+    </div>
+    <div class="col-lg-10">
+        <div class="audio-file">
+            <div class="row">
+                <p>Reproduciendo</p>
+            </div>
+            <div class="row"> 
+                <span id="play-song-title" *ngIf="song != null && song !== undefined">
+                    {{song.name}}
+                </span>
+            </div>
+            <div class="row">
+                <span id="plya-song-artist" *ngIf="song != null && song !== undefined">
+                    <span *ngIf="song.album.artist">
+                        {{song.album.artist.name}}
+                    </span>
+                </span>
+            </div>
+            <div class="row">
+                <audio controls id="player">
+                    <source id="mp3-source" [src]="url+music" type="audio/mpeg">
+                </audio>
+            </div>  
+        </div>
+    </div>
+</div>
+
+
+

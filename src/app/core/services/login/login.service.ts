@@ -16,13 +16,13 @@ export class LoginService {
   login(json: string): Observable<Response> {
     console.log('El json es', json);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post<Response>(environment.loginUser, json, {headers});
+    return this.http.post<Response>(environment.loginUserLocal, json, {headers});
   }
 
   loginArtist(json: string): Observable<Response> {
     console.log('El json es', json);
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post<Response>(environment.loginArtist, json, {headers});
+    return this.http.post<Response>(environment.loginArtistLocal, json, {headers});
   }
 
 }

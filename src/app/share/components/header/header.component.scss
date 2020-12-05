@@ -1,0 +1,91 @@
+.navegation {
+    text-align: center;
+    color: white;
+    background: #1C1C1F;
+    min-height: 100vh;
+}
+
+.head-title {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0px auto;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+}
+
+.head-options {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    display: block;
+}
+
+.navegation a {
+    color: #ddd;
+    margin: 0px auto;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    display: block;
+    text-decoration: none;
+}
+
+.navegation a:hover {
+    color: white;
+}
+
+mat-icon {
+    font-size: 200%;
+    display: block;
+    width: 100%;
+    color: white;
+}
+
+.user_logged {
+    text-decoration: none;
+    background: #1C1C1F;
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid #444;
+    width: 86%;
+}
+
+.centrar {
+    text-align: center;
+}
+
+.user-image {
+    background: #eee;
+    border-radius: 100px;
+    height: 57px;
+    width: 57px;
+    margin: 0px auto;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.img {
+    width: 57px;
+}
+
+span{
+    font-size: 12px;
+    //align-content: center;
+    font-weight: bold;
+}
+
+.actived {
+    border-bottom: 4px solid #84bc00;
+    padding-bottom: 4px;
+
+}
+
+nav {
+    text-align: center;
+    display: block;
+    margin: 0px auto;
+}
