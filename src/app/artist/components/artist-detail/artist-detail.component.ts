@@ -21,10 +21,21 @@ export class ArtistDetailComponent implements OnInit {
 
   buildForm(): void {
     this.form =  this.formBuilder.group({
-      twitter: new FormControl({value: this.data[0], disabled: true}),
-      instagram: new FormControl({value: this.data[1], disabled: true}),
-      facebook: new FormControl({value: this.data[2], disabled: true})
+      twitter: new FormControl({value: this.validatorSocialNetworks(this.data, 'Twitter'), disabled: true}),
+      instagram: new FormControl({value: this.validatorSocialNetworks(this.data, 'Instagram'), disabled: true}),
+      facebook: new FormControl({value: this.validatorSocialNetworks(this.data, 'Facebook'), disabled: true})
     });
+  }
+
+  validatorSocialNetworks(socialNetworks: string[], type: string): any {
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < socialNetworks.length; i++) {
+      const typeAccount: string[] = socialNetworks[i].split('_');
+      if (typeAccount[1] === type) {
+        return typeAccount[0];
+      }
+    }
+    return '';
   }
 
 }

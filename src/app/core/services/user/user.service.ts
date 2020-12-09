@@ -53,5 +53,23 @@ export class UserService {
     return this.http.get<Response>(environment.getAllArtists, {headers});
   }
 
+  getArtist(token: string, id: string): Observable<Response> {
+    console.log('El id del usuario es', id);
+    const headers = new HttpHeaders({
+      authorization: token
+    }).set('Content-Type', 'application/json');
+    return this.http.get<Response>(environment.getArtist + id, {headers});
+  }
+
+  updateArtist(token: string, id: string, json: string): Observable<Response> {
+    console.log('El id del usuario es', id);
+    console.log('El token es ', token);
+    console.log(json);
+    const headers = new HttpHeaders({
+      authorization: token
+    }).set('Content-Type', 'application/json');
+    return this.http.put<Response>(environment.updateArtistLocal + id, json, {headers});
+  }
+
 
 }

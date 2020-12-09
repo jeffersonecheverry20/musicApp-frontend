@@ -38,7 +38,7 @@ export class UpdateUserComponent implements OnInit {
 
     this.userService.getUser(sessionStorage.getItem('idUsuario'), sessionStorage.getItem('token')).subscribe((response: Response) => {
       console.log(response);
-      if (response.code === 0){
+      if (response.code === 0) {
         this.url = environment.getImageUserLocal + response.body.user.image;
         const genre = response.body.user.genre;
         // console.log(genre);
@@ -47,13 +47,10 @@ export class UpdateUserComponent implements OnInit {
           surname: [response.body.user.surname, [Validators.required]],
           email: [response.body.user.email, [Validators.required, Validators.email]],
           password: [response.body.user.password, [Validators.required]],
-          salsa: [this.validatorGenre(genre, 'Salsa')],
-          vallenato: [this.validatorGenre(genre, 'Vallenato')],
-          bachata: [this.validatorGenre(genre, 'Bachata')],
+          latina: [this.validatorGenre(genre, 'Latina')],
+          reggae: [this.validatorGenre(genre, 'Reggae')],
           clasica: [this.validatorGenre(genre, 'Clasica')],
-          regueton: [this.validatorGenre(genre, 'Regueton')],
           pop: [this.validatorGenre(genre, 'Pop')],
-          balada: [this.validatorGenre(genre, 'Balada')],
           rock: [this.validatorGenre(genre, 'Rock')]
         });
         this.url = environment.getImageUserLocal + response.body.user.image;
@@ -68,28 +65,25 @@ export class UpdateUserComponent implements OnInit {
       surname: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      salsa: [''],
-      vallenato: [''],
-      bachata: [''],
+      latina: [''],
+      reggae: [''],
       clasica: [''],
-      regueton: [''],
       pop: [''],
-      balada: [''],
       rock: ['']
     });
   }
 
   validatorGenre(genre: string[], type: string): any {
     // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < genre.length; i++){
-        if (genre[i] === type){
-          return true;
-        }
+    for (let i = 0; i < genre.length; i++) {
+      if (genre[i] === type) {
+        return true;
+      }
     }
     return false;
   }
 
-  updateUser(event: Event): void{
+  updateUser(event: Event): void {
 
     event.preventDefault();
 
@@ -97,11 +91,11 @@ export class UpdateUserComponent implements OnInit {
     const token = sessionStorage.getItem('token');
 
     this.userService.updateUser(sessionStorage.getItem('idUsuario'), JSON.stringify(userUpdate), token).subscribe((response: Response) => {
-      if (response.code === 0){
+      if (response.code === 0) {
         console.log(response);
         this.user = response.body;
         console.log('El nombre de la imagen es ', response.body.user.image);
-        if (!this.filesToUpload){
+        if (!this.filesToUpload) {
           // Redireccionar
         } else {
           this.makeFileRequest(environment.uploadImageUserLocal + sessionStorage.getItem('idUsuario'), [], this.filesToUpload)
@@ -130,31 +124,31 @@ export class UpdateUserComponent implements OnInit {
     const token = sessionStorage.getItem('token');
 
     return new Promise((resolve, reject) => {
-        const formData: any = new FormData();
-        const xhr = new XMLHttpRequest();
+      const formData: any = new FormData();
+      const xhr = new XMLHttpRequest();
 
-        // tslint:disable-next-line: prefer-for-of
-        for (let i = 0; i < files.length; i++){
-          formData.append('image', files[i], files[i].name);
-        }
+      // tslint:disable-next-line: prefer-for-of
+      for (let i = 0; i < files.length; i++) {
+        formData.append('image', files[i], files[i].name);
+      }
 
-        xhr.onreadystatechange = () => {
-          if (xhr.readyState === 4){
-            if (xhr.status === 200){
-              resolve(JSON.parse(xhr.response));
-            } else {
-              reject(xhr.response);
-            }
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            resolve(JSON.parse(xhr.response));
+          } else {
+            reject(xhr.response);
           }
-        };
+        }
+      };
 
-        xhr.open('POST', url, true);
-        xhr.setRequestHeader('Authorization', token);
-        xhr.send(formData);
+      xhr.open('POST', url, true);
+      xhr.setRequestHeader('Authorization', token);
+      xhr.send(formData);
     });
   }
 
-  buildObjectUser(): any{
+  buildObjectUser(): any {
     let contador = 0;
     const user = new User();
     user.name = this.formUser.get('name').value;
@@ -165,42 +159,27 @@ export class UpdateUserComponent implements OnInit {
     user.image = this.user.image;
     user.genre = [];
 
-    if (this.formUser.get('salsa').value === true){
-      user.genre[contador] = 'Salsa';
+    if (this.formUser.get('latina').value === true) {
+      user.genre[contador] = 'Latina';
       contador++;
     }
 
-    if (this.formUser.get('vallenato').value === true){
-      user.genre[contador] = 'Vallenato';
+    if (this.formUser.get('reggae').value === true) {
+      user.genre[contador] = 'Reggae';
       contador++;
     }
 
-    if (this.formUser.get('bachata').value === true){
-      user.genre[contador] = 'Bachata';
-      contador++;
-    }
-
-    if (this.formUser.get('clasica').value === true){
+    if (this.formUser.get('clasica').value === true) {
       user.genre[contador] = 'Clasica';
       contador++;
     }
 
-    if (this.formUser.get('regueton').value === true){
-      user.genre[contador] = 'Regueton';
-      contador++;
-    }
-
-    if (this.formUser.get('pop').value === true){
+    if (this.formUser.get('pop').value === true) {
       user.genre[contador] = 'Pop';
       contador++;
     }
 
-    if (this.formUser.get('balada').value === true){
-      user.genre[contador] = 'Balada';
-      contador++;
-    }
-
-    if (this.formUser.get('rock').value === true){
+    if (this.formUser.get('rock').value === true) {
       user.genre[contador] = 'Rock';
       contador++;
     }

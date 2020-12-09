@@ -29,9 +29,9 @@ export class ListSongsComponent implements OnInit {
     console.log(this.routeActive.snapshot.params.album);
     const album = this.routeActive.snapshot.params.album;
     const token = sessionStorage.getItem('token');
-    this.songService.getSongs(token, album).subscribe((response: Response) => {
+    this.songService.getSongs(token, album, 1).subscribe((response: Response) => {
       console.log(response);
-      if (response.code === 0){
+      if (response.code === 0) {
         this.songs = response.body.songs;
         console.log(response.body.songs[0].album);
         this.album = response.body.songs[0].album;
@@ -47,16 +47,31 @@ export class ListSongsComponent implements OnInit {
   }
 
   // tslint:disable-next-line: variable-name
-  reproducirSong(number: number): void{
+  reproducirSong(number: number, id: string): void {
     console.log(number);
     const songSelected = this.songs.filter(s => s.number === number);
     console.log(songSelected);
     this.song = songSelected[0];
     console.log(this.song.file);
     sessionStorage.setItem('activar', '1');
-    sessionStorage.setItem('name-song', this.song.file);
-    const player = new PlayerComponent();
     this.activar = true;
+
+    // Update listened song
+    if (sessionStorage.getItem('role') === 'ROLE_USER') {
+      const token = sessionStorage.getItem('token');
+      this.songService.updateListened(token, id).subscribe((response: Response) => {
+        console.log(response);
+        if (response.code === 0) {
+          console.log(response.message);
+        } else {
+          console.log(response.code);
+          console.log(response.body);
+        }
+      }, err => {
+        console.log(err);
+      });
+    }
+
   }
 
 }

@@ -22,6 +22,9 @@ import { ListSongsComponent } from './components/list-songs/list-songs.component
     ShareModule,
     SongRoutingModule,
     CommonModule
+  ],
+  exports: [
+    PlayerComponent
   ]
 })
 export class SongModule { }

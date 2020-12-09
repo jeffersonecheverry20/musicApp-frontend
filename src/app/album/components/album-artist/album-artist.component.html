@@ -18,7 +18,7 @@
                     <p><span class="bold-text">Artista: </span>{{album.artist.name +' '+album.artist.surname}}</p>
                 </mat-card-content>
                 <mat-card-actions class="buttons">
-                    <button mat-raised-button color="primary">Canciones</button>
+                    <button mat-raised-button color="primary" (click)="listSongs($event, album._id)">Canciones</button>
                 </mat-card-actions>
             </mat-card> 
         </div>  

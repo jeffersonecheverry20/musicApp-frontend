@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit, OnChanges {
 
   name = '';
   url = '';
+  urlArtist = '';
   @Input() image: string;
   role = '';
 
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     console.log('El rol en header es ', this.role);
     console.log(sessionStorage.getItem('nameUser'));
     this.url = environment.getImageUserLocal + sessionStorage.getItem('image');
+    this.urlArtist = environment.getImageArtistLocal + sessionStorage.getItem('image');
     console.log(this.url);
     this.name = sessionStorage.getItem('nameUser');
   }
@@ -33,7 +35,11 @@ export class HeaderComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
     if (changes){
-      this.url = changes.image.currentValue;
+      if (sessionStorage.getItem('role') === 'ROLE_USER'){
+        this.url = changes.image.currentValue;
+      } else {
+        this.urlArtist = changes.image.currentValue;
+      }
     }
   }
 

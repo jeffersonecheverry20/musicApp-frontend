@@ -10,3 +10,32 @@
 .fondo {
     background: #899384;
 }
+
+#songs-list {
+    margin: 0px;
+    padding: 0px;
+}
+
+.song-item{
+    list-style: none;
+    border-bottom: 1px solid #cccccc;
+    padding-top: 3px;
+}
+
+.song-item .title{
+    padding: 12px;
+}
+
+.description {
+    margin-right: 10px;
+}
+
+.player {
+    background: #1C1C1F;
+    position: fixed;
+    width: 90.2%;
+    bottom: 0;
+    padding: 20px;
+    margin-left: -15px;
+    border-left: 1px solid #444;
+}

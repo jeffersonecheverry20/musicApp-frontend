@@ -28,8 +28,11 @@
         </div>
     </nav>
     <nav class="user_logged">
-        <div>
+        <div *ngIf="role === 'ROLE_USER'">
             <img src="{{url}}" class="user-image">
+        </div>
+        <div *ngIf="role === 'ROLE_ARTIST'">
+            <img src="{{urlArtist}}" class="user-image">
         </div>
         <span>
            {{name}}

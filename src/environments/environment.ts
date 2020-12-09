@@ -28,7 +28,12 @@ export const environment = {
   uploadAudioLocal: 'http://localhost:3000/api/upload-file-song/',
   getSongLocal: 'http://localhost:3000/api/song/',
   getSongAlbumLocal: 'http://localhost:3000/api/songs/',
-  getAudiloLocal: 'http://localhost:3000/api/get-file-song/'
+  getAudiloLocal: 'http://localhost:3000/api/get-file-song/',
+  updateListenedSongLocal: 'http://localhost:3000/api/updateListened/',
+  getArtist: 'http://localhost:3000/api/artist/',
+  getImageArtistLocal: 'http://localhost:3000/api/get-image/',
+  updateArtistLocal: 'http://localhost:3000/api/update-artist/',
+  uploadImageArtisLocal: 'http://localhost:3000/api/upload-artist-image/'
 };
 
 /*

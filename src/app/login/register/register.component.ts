@@ -42,13 +42,10 @@ export class RegisterComponent implements OnInit {
       surname: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      salsa: [''],
-      vallenato: [''],
-      bachata: [''],
+      latina: [''],
+      reggae: [''],
       clasica: [''],
-      regueton: [''],
       pop: [''],
-      balada: [''],
       rock: ['']
     });
 
@@ -110,18 +107,13 @@ export class RegisterComponent implements OnInit {
     user.password = this.formUser.get('password').value;
     user.genre = [];
 
-    if (this.formUser.get('salsa').value === true){
-      user.genre[contador] = 'Salsa';
+    if (this.formUser.get('latina').value === true){
+      user.genre[contador] = 'Latina';
       contador++;
     }
 
-    if (this.formUser.get('vallenato').value === true){
-      user.genre[contador] = 'Vallenato';
-      contador++;
-    }
-
-    if (this.formUser.get('bachata').value === true){
-      user.genre[contador] = 'Bachata';
+    if (this.formUser.get('reggae').value === true){
+      user.genre[contador] = 'Reggae';
       contador++;
     }
 
@@ -130,18 +122,8 @@ export class RegisterComponent implements OnInit {
       contador++;
     }
 
-    if (this.formUser.get('regueton').value === true){
-      user.genre[contador] = 'Regueton';
-      contador++;
-    }
-
     if (this.formUser.get('pop').value === true){
       user.genre[contador] = 'Pop';
-      contador++;
-    }
-
-    if (this.formUser.get('balada').value === true){
-      user.genre[contador] = 'Balada';
       contador++;
     }
 

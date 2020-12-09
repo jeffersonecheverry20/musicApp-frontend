@@ -5,6 +5,7 @@ import { AlbumService } from '../../../core/services/album/album.service';
 import { Response } from '../../../modelos/response';
 import { Album } from '../../../modelos/album';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-album-artist',
@@ -16,7 +17,7 @@ export class AlbumArtistComponent implements OnInit {
   albumes: Album[];
   url = environment.getImageAlbumLocal;
 
-  constructor(private  routeActive: ActivatedRoute, private albumService: AlbumService) { }
+  constructor(private  routeActive: ActivatedRoute, private albumService: AlbumService, private route: Router) { }
 
   ngOnInit(): void {
     console.log(this.routeActive.snapshot.params.id);
@@ -34,6 +35,13 @@ export class AlbumArtistComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+  }
+
+  listSongs(event: Event, album: string): void{
+    console.log('Ejecuto el metodo listSongs');
+    event.preventDefault();
+    event.stopPropagation();
+    this.route.navigate(['/song/list/' + album]);
   }
 
 }
