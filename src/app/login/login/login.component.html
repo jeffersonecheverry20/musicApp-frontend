@@ -1,3 +1,25 @@
+<div id="publicidad" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="../assets/rappi1.jpg" alt="First slide" height="80px" width="100px">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="../assets/mercadolibre.jpg" alt="Second slide" height="80px" width="100px">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="../assets/tropicana.jpg" alt="Third slide" height="80px" width="100px">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#publicidad" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#publicidad" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
 <div class="contenedor">
     <form [formGroup]="form">
         <mat-card class="card">
@@ -20,7 +42,7 @@
                         <mat-form-field class="input_text" appearance="outline">
                             <mat-label>Password</mat-label>
                             <input formControlName="password" matInput [type]="validar ? 'password' : 
-                            'text'" placeholder="Password"/>
+                            'text'" placeholder="Password" />
                             <button mat-icon-button matSuffix (click)="visibility($event)">
                                 <mat-icon>{{validar ? 'visibility_off': 'visibility'}}</mat-icon>
                             </button>
@@ -36,7 +58,7 @@
                             <mat-label>Tipo Usuario</mat-label>
                             <mat-select formControlName="tipoUsuario">
                                 <mat-option *ngFor="let tipo of tiposUsuario" [value]="tipo">{{tipo}}</mat-option>
-                            </mat-select>           
+                            </mat-select>
                         </mat-form-field>
                         <mat-error *ngIf="form.get('tipoUsuario').invalid && (form.get('tipoUsuario').touched || 
                         form.get('tipoUsuario').dirty)">El campo es requerido</mat-error>
@@ -44,12 +66,12 @@
                 </div>
 
                 <div>
-                    <div >
+                    <div>
 
                     </div>
                 </div>
             </mat-card-content>
-                
+
             <mat-card-footer *ngIf="errorHttp" class="color_text">
                 {{mensajeErrorHttp}}
             </mat-card-footer>
@@ -62,8 +84,7 @@
                     </button>
                 </div>
                 <div>
-                    <button mat-raised-button class="button_register"
-                        (click)="register($event)">Registrarme
+                    <button mat-raised-button class="button_register" (click)="register($event)">Registrarme
                     </button>
                 </div>
             </mat-card-actions>
